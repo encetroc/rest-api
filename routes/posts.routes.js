@@ -16,4 +16,11 @@ router.post('/', async (req, res) => {
   res.send(post)
 })
 
+// dete a post using the post id
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params
+  await Post.findByIdAndDelete(id)
+  res.send(`post with id ${id} has been deleted`)
+})
+
 module.exports = router
