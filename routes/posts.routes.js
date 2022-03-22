@@ -3,8 +3,10 @@ const Post = require('../models/post.model')
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  res.send(['post1', 'post2'])
+// get all the posts
+router.get('/', async (req, res) => {
+  const posts = await Post.find()
+  res.send(posts)
 })
 
 // create a new post
