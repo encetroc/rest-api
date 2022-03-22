@@ -13,5 +13,9 @@ app.get('/', (req, res) => {
   res.send('hello world')
 })
 
+// posts routes
+const postsRoutes = require('./routes/posts.routes')
+app.use('/posts', postsRoutes)
+
 // listen to upcoming requests
 app.listen(process.env.PORT)
