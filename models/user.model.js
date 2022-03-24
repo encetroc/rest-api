@@ -3,7 +3,10 @@ const { Schema, model } = mongoose
 
 // create a schema
 const userSchema = new Schema({
-  email: String,
+  email: {
+    type: String,
+    unique: true,
+  },
   password: String,
 })
 
