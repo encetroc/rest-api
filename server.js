@@ -21,5 +21,9 @@ app.get('/', (req, res) => {
 const postsRoutes = require('./routes/posts.routes')
 app.use('/posts', postsRoutes)
 
+// auth routes
+const authRoutes = require('./routes/auth.routes')
+app.use('/auth', authRoutes)
+
 // listen to upcoming requests
 app.listen(process.env.PORT)
