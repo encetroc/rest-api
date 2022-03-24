@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const { isAuthenticated } = require('./middlewares/jwt.middleware')
 dotenv.config()
 
 // connect to the database
@@ -19,7 +20,7 @@ app.get('/', (req, res) => {
 
 // posts routes
 const postsRoutes = require('./routes/posts.routes')
-app.use('/posts', postsRoutes)
+app.use('/posts', isAuthenticated, postsRoutes)
 
 // auth routes
 const authRoutes = require('./routes/auth.routes')
